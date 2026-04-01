@@ -12,6 +12,8 @@ jobs:
 
       - name: Run update.sh
         env:
-          GH_PAT: ${{ secrets.BASSOON_PAT }}
           CI: "true"
         run: bash update.sh
+
+      - name: Push to main
+        run: git push https://x-access-token:${{ secrets.BASSOON_PAT }}@github.com/GrabowskiM/sturdy-bassoon.git HEAD:main
