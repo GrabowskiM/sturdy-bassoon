@@ -12,6 +12,6 @@ jobs:
 
       - name: Run update.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.BASSOON_PAT }}
+          GH_PAT: ${{ secrets.BASSOON_PAT }}
           CI: "true"
         run: bash update.sh

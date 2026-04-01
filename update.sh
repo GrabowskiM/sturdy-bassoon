@@ -7,11 +7,11 @@ TARGET_REPO="sturdy-bassoon"
 TARGET_DIR="$(cd "$(dirname "$0")" && pwd)"
 CLONE_DIR="/tmp/${SOURCE_REPO}-$$"
 
-if [ -n "$GITHUB_TOKEN" ]; then
-    SOURCE_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${OWNER}/${SOURCE_REPO}.git"
-    TARGET_REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${OWNER}/${TARGET_REPO}.git"
+SOURCE_URL="https://github.com/${OWNER}/${SOURCE_REPO}.git"
+
+if [ -n "$GH_PAT" ]; then
+    TARGET_REMOTE="https://x-access-token:${GH_PAT}@github.com/${OWNER}/${TARGET_REPO}.git"
 else
-    SOURCE_URL="git@github.com:${OWNER}/${SOURCE_REPO}.git"
     TARGET_REMOTE=""
 fi
 
