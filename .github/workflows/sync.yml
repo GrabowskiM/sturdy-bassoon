@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout sturdy-bassoon
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.BASSOON_PAT }}
 
       - name: Run update.sh
         env:
