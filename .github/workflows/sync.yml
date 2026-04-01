@@ -3,6 +3,9 @@ name: Sync from silver-palm-tree
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -16,4 +19,4 @@ jobs:
         run: bash update.sh
 
       - name: Push to main
-        run: git push https://x-access-token:${{ secrets.BASSOON_PAT }}@github.com/GrabowskiM/sturdy-bassoon.git HEAD:main
+        run: git push origin HEAD:main
