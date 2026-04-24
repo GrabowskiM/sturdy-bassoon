@@ -1,0 +1,26 @@
+{
+  "name": "sturdy",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/GrabowskiM/sturdy-bassoon#readme",
+  "bugs": {
+    "url": "https://github.com/GrabowskiM/sturdy-bassoon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrabowskiM/sturdy-bassoon.git"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    }
+  },
+  "license": "ISC",
+  "author": "Michał Grabowski",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

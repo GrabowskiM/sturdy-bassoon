@@ -1,0 +1,39 @@
+name: Publish to GitHub Packages
+
+on:
+    release:
+        types: [ published ]
+    workflow_dispatch: ~
+
+
+jobs:
+    publish:
+        name: Publish to GitHub Packages
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write
+
+        strategy:
+            matrix:
+                package:
+                    - bassoon
+                    - sturdy
+
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+
+            -   name: Setup Node.js
+                uses: actions/setup-node@v4
+                with:
+                    node-version: '24'
+                    registry-url: 'https://npm.pkg.github.com'
+                    scope: '@GrabowskiM'
+
+            -   name: Publish ${{ matrix.package }} to GitHub Packages
+                run: npm publish --registry=https://npm.pkg.github.com
+                working-directory: packages/${{ matrix.package }}
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.BASSOON_PAT }}
+
