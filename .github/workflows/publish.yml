@@ -32,7 +32,7 @@ jobs:
                     scope: '@GrabowskiM'
 
             -   name: Publish ${{ matrix.package }} to GitHub Packages
-                run: npm publish --registry=https://npm.pkg.github.com
+                run: npm publish --registry=https://npm.pkg.github.com --access public
                 working-directory: packages/${{ matrix.package }}
                 env:
                     NODE_AUTH_TOKEN: ${{ secrets.BASSOON_PAT }}
